@@ -1,0 +1,29 @@
+// A PhysicalProduct IS-A Product because it is a type of product that can be sold.
+// A ShoppingCart is not a Product because it HAS-A collection of products.
+
+package uk.ac.westminster.products_api;
+
+public class PhysicalProduct extends Product{
+
+    private double weightKg;
+    private String dimensions;
+
+
+    public PhysicalProduct() {
+    }
+
+    public PhysicalProduct(long id, String name, double price,
+                           double weightKg, String dimensions) {
+        super(id, name, price);
+        this.weightKg = weightKg;
+        this.dimensions = dimensions;
+    }
+
+    public double getWeightKg() {
+        return weightKg;
+    }
+
+    public String getDimensions() {
+        return dimensions;
+    }
+}

@@ -30,6 +30,21 @@ class ProductController {
     + deleteProduct(id : Long) : void
 }
 
+class DigitalProduct {
+- downloadUrl : String
+- fileSizeMB : double
++ getDownloadUrl() : String
+}
+class PhysicalProduct {
+- weightKg : double
+- dimensions : String
+5COSC019W · OBJECT ORIENTED PROGRAMMING · TUTORIAL 4 STUDENT LAB GUIDE
+Page 8 of 11
++ getWeightKg() : double
+}
+
+Product <|-- DigitalProduct
+Product <|-- PhysicalProduct
 ProductController ..> ProductService
 ProductService --> Product
 
