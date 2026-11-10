@@ -34,18 +34,36 @@ class DigitalProduct {
 - downloadUrl : String
 - fileSizeMB : double
 + getDownloadUrl() : String
++ getSummary() : String
++ applyDiscount(rate : double) : void
 }
 class PhysicalProduct {
 - weightKg : double
 - dimensions : String
-5COSC019W · OBJECT ORIENTED PROGRAMMING · TUTORIAL 4 STUDENT LAB GUIDE
-Page 8 of 11
 + getWeightKg() : double
++ getSummary() : String
++ applyDiscount(rate : double) : void
+}
+
+abstract class Product {
+- id : Long
+- name : String
+- price : double
++ {abstract} getSummary() : String
++ getName() : String
++ getPrice() : double
+}
+
+interface Discountable {
++ applyDiscount(rate : double) : void
++ getDiscountedPrice() : double
 }
 
 Product <|-- DigitalProduct
 Product <|-- PhysicalProduct
 ProductController ..> ProductService
 ProductService --> Product
+Discountable <|.. DigitalProduct
+Discountable <|.. PhysicalProduct
 
 @enduml
